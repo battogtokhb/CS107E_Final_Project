@@ -1,19 +1,37 @@
+PROJECT PROPOSAL
 
-Here is a suggested outline for your proposal. You don't need to follow this
-outline, but it may help you focus your project.
+Project Title: Lock It, Hack It, Break It
+Team Members: Zaya Battogtokh and Josh Wolff
 
-* Project title
-* Team members
-* Description (1 pp describing the basic idea)
-* Hardware required (itemize what hardware, if any, you need)
-* Funds requested (the amount you will want to be reimbursed, remember you have
-  a $20 budget per person)
-* Major task breakdown and who is responsible for each task
-* Goals for next week
-* References and resources used
+--Description--
+We will unlock a standard dial combination padlock. First, we will
+unlock the lock using a known combination. Then we will unlock a 
+lock where the combination is unknown. We will achieve this with a
+brute force technique.
 
-Keep the proposal short and to the point.
+--Hardware--
+We will need a stepper motor to turn the lock, a motor driver, a
+pull solenoid to open the lock, (maybe) a push solenoid, a pad
+lock, and perhaps some type of sensor (like a button) to detect
+when the lock has been successfully opened.
 
-We suggest you try to get all the major hardware components working by the
-first week. That will leave the following week for putting the components
-together into a working system.
+--Funds Requested--
+Unsure of the total amount. I am currently in Lab64 trying to see
+which parts are already available for free. After that, I will likely
+check out Jameco.
+
+--Task Breakdown--
+Zaya: Configuring and programming a revolution of the stepper 
+motor, fine-tuning of stepper motor, programming the algorithm 
+for opening a single combination, optimization of the algorithms
+
+Josh: Set up solenoid, programming the shell interface, programming
+the sensor that detects when lock is opened, programming the 
+algorithm for opening the lock by brute force, optimization
+
+--Goals For Next Week--
+Have a device that can open a lock when the combination is known.
+
+--Reference and Resources Used--
+Lab64, Chris Gregg
+
