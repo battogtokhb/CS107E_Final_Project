@@ -5,6 +5,7 @@ Create a short writeup about your project and place it in README.md. If you have
 The writeup should also include a short description of what work was performed by each member of the team.
 
 MATERIALS USED
+
 -Circuit Board Clamping Kit (https://bit.ly/2JccvUw)
 
 -12 VDC Continuous Tubular Pull Solenoid (https://bit.ly/2suVIWt)
