@@ -6,7 +6,11 @@ The writeup should also include a short description of what work was performed b
 
 MATERIALS USED
 -Circuit Board Clamping Kit (https://bit.ly/2JccvUw)
+
 -12 VDC Continuous Tubular Pull Solenoid (https://bit.ly/2suVIWt)
+
 -4-Phase 12VDC 0.4 A Unipolar Stepper Motor (https://bit.ly/2xFiOii)
+
 -Stepper Motor Controller (https://bit.ly/2Hi2BPk)
+
 -24 DIP Motor Driver (https://bit.ly/2sDtrwf)
