@@ -48,6 +48,15 @@ enum {
 }
 
 /*
+ * These enumerated values define values for clockwise and
+ * counterclockwise rotation.
+ */
+enum {
+  CCW = 0;
+  CW = 1;
+}
+
+/*
  * Initialize the stepper code module.
  */
 void stepper_init(void);

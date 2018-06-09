@@ -110,6 +110,7 @@ void rotate_step(int delay, int clockwise, int motor) {
  /*
   * Unlocks the given master lock given a specified code.
   * Assumes a starting position of 0.
+  * 8 20 30
   */
  void unlock_lock(int first, int second, int third) {
 
