@@ -3,12 +3,12 @@ NAME = apps/interrupts_console_shell
 MY_MODULES = keyboard.o gprof.o
 
 # This is the list of modules for building libmypi.a
-LIMYBPI_MODULES = timer.o gpio.o strings.o printf.o backtrace.o malloc.o keyboard.o shell.o fb.o gl.o console.o
+LIMYBPI_MODULES = timer.o gpio.o strings.o printf.o backtrace.o malloc.o keyboard.o shell.o fb.o gl.o console.o lock.o
 
-CFLAGS  = -I$(CS107E)/include -g -Wall -Wpointer-arith
+CFLAGS  = -I$(CS107E_COPY)/include -g -Wall -Wpointer-arith
 CFLAGS += -Og -std=c99 -ffreestanding
 CFLAGS += -mapcs-frame -fno-omit-frame-pointer -mpoke-function-name
-LDFLAGS = -nostdlib -T memmap -L. -L$(CS107E)/lib
+LDFLAGS = -nostdlib -T memmap -L. -L$(CS107E_COPY)/lib
 LDLIBS  = -lpi -lgcc
 
 all : $(NAME).bin $(MY_MODULES)

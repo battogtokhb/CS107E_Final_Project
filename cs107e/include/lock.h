@@ -85,7 +85,7 @@ int open_lock(int motor);
  *
  * Assumes a starting position of 0.
  */
-void unlock_lock(int first, int second, int third);
+int unlock_lock(int first, int second, int third);
 
 /*
  * Breaks into the lock using brute force.
