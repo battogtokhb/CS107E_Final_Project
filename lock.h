@@ -64,16 +64,25 @@ void stepper_init(void);
 void rotate(int steps, int delay, int clockwise, int motor);
 
 /*
+ * Opens the lock by rotating the stepper motor such that it tugs on the lock.
+ *
+ * Returns 1 if successful. 0 if not.
+ */
+int open_lock(int motor);
+
+/*
  * Unlocks the given master lock given a specified code.
+ *
  * Assumes a starting position of 0.
  */
 void unlock_lock(int first, int second, int third);
 
 /*
  * Breaks into the lock using brute force.
+ *
  * Returns the code that worked. Assumes a starting position of 0.
  */
-int break_lock();
+int break_lock(void);
 
 
 #endif
