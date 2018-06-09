@@ -10,6 +10,11 @@
  * Date: June 9 2018
  */
 
+/* NOTE:
+ * A step is defined by a step on the motor.
+ * An increment is defined by an increment on the lock.
+ */
+
 // The total steps per increment on the clock. Varies depending on motor, voltage, etc.
 #define STEPS_PER_INCREMENT 3
 // Total phases per step. Depends on type of motor. This assumes a bipolar stepper motor.
@@ -56,7 +61,7 @@ void stepper_init(void);
  *
  * Clockwise is a 1 or 0 to indicate direction of rotation.
  */
-void rotate(int steps, int delay, int clockwise);
+void rotate(int steps, int delay, int clockwise, int motor);
 
 /*
  * Unlocks the given master lock given a specified code.
