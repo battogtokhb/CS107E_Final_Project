@@ -43,7 +43,7 @@ void gpio_set_function(unsigned int pin, unsigned int function) {
    if ((pin < GPIO_PIN_FIRST) || (pin > GPIO_PIN_LAST)){
      ;
    }
-   else if ((function < 0) || (function > 7)){
+   if ((function < 0) || (function > 7)){
      ;
    }
    else{

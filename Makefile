@@ -35,7 +35,7 @@ libmypi.a: $(LIMYBPI_MODULES) Makefile
 install: $(NAME).bin
 	rpi-install.py -p $<
 
-test: tests/test_keyboard_interrupts.bin
+test: tests/test_stepper.bin
 	rpi-install.py -p $<
 
 bonus: $(NAME)-bonus.bin
