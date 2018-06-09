@@ -2,12 +2,6 @@
 #include "printf.h"
 #include "timer.h"
 
-
-// static const A1 = 19;
-// static const A2 = 26;
-// static const B1 = 6;
-// static const B2 = 13;
-
 static const A1 = 26;
 static const A2 = 19;
 static const B1 = 13;
@@ -29,6 +23,7 @@ void set_step(int a_1, int a_2, int b_1, int b_2){
 
 void forward(int steps, int delay){
   int i = 0;
+  delay = delay / 4;
   while (steps > i){
     set_step(1,0,1,0);
     timer_delay_ms(delay);
