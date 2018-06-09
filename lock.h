@@ -15,6 +15,7 @@
  * An increment is defined by an increment on the lock.
  */
 
+#define INCREMENTS_PER_LOCK 40
 // The total steps per increment on the clock. Varies depending on motor, voltage, etc.
 #define STEPS_PER_INCREMENT 3
 // Total phases per step. Depends on type of motor. This assumes a bipolar stepper motor.

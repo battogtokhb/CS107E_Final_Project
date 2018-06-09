@@ -2,8 +2,8 @@
 #include "lock.h"
 
 // MARK:- CONSTANTS
-
-
+static const int ROTATIONS_TO_RESET = 2;
+static const int STANDARD_DELAY = PHASES_PER_STEP * STEPS_PER_INCREMENT;
 
 // MARK:- GLOBALS
 
@@ -11,12 +11,22 @@
 
 // MARK:- HELPER FUNCTIONS
 
+/*
+ * Moves the pointer to zero.
+ * Steps is the amount of steps away from zero.
+ */
+void reset_lock_to_zero(int steps, int clockwise) {
+
+}
 
 /*
  * Resets the lock after trying to open it.
  */
 void reset_lock(void) {
-
+  reset_lock_to_zero();
+  for (int i = 0; i < ROTATIONS_TO_RESET; i++) {
+    rotate(INCREMENTS_PER_LOCK, 0, CW, int motor)
+  }
 }
 
 /*
