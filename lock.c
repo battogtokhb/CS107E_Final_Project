@@ -100,9 +100,9 @@ void rotate_step(int delay, int clockwise, int motor) {
   *
   * Delay must be a multiple of PHASES_PER_STEP * STEPS_PER_INCREMENT.
   */
- void rotate(int steps, int delay, int clockwise, int motor) {
+ void rotate(int increments, int delay, int clockwise, int motor) {
    delay = delay / STEPS_PER_INCREMENT;
-   for (int i = 0; i < steps; i++) {
+   for (int i = 0; i < increments; i++) {
      for (int j = 0; j < STEPS_PER_INCREMENT; j++) {
        rotate_step(delay, clockwise, motor);
      }

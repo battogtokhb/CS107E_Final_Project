@@ -70,7 +70,7 @@ void stepper_init(void);
  *
  * Clockwise is a 1 or 0 to indicate direction of rotation.
  */
-void rotate(int steps, int delay, int clockwise, int motor);
+void rotate(int increments, int delay, int clockwise, int motor);
 
 /*
  * Opens the lock by rotating the stepper motor such that it tugs on the lock.
