@@ -123,8 +123,12 @@ void rotate_step(int delay, int clockwise, int motor) {
   *
   * Assumes a starting position of 0.
   * Returns 1 if successful. Returns 0 if not.
+  *
+  * For later: might want to integrate unlock_lock(...) and break_lock(...) as
+  * one function with a variable number of arguments.
   */
  int unlock_lock(int first, int second, int third) {
+   reset_lock(MOTOR_1);
    rotate(INCREMENTS_PER_LOCK - first, 0, CCW, MOTOR_1);
    rotate(INCREMENTS_PER_LOCK + second - first, 0, CW, MOTOR_1);
    rotate(third - second, 0, CCW, MOTOR_1);
@@ -134,6 +138,7 @@ void rotate_step(int delay, int clockwise, int motor) {
  /*
   * Breaks into the lock using brute force.
   * Returns the code that worked. Assumes a starting position of 0.
+  * 8 30 20
   */
  int break_lock(void) {
 
