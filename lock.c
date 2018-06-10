@@ -1,5 +1,7 @@
 // MARK:- INCLUDES
 #include "lock.h"
+#include "gpio.h"
+#include "timer.h"
 
 // MARK:- CONSTANTS
 static const int ROTATIONS_TO_RESET = 2;
@@ -23,7 +25,6 @@ void reset_lock_to_zero(int steps, int clockwise) {
  * Resets the lock after trying to open it.
  */
 void reset_lock(int motor) {
-  reset_lock_to_zero();
   for (int i = 0; i < ROTATIONS_TO_RESET; i++) {
     rotate(INCREMENTS_PER_LOCK, 0, CW, MOTOR_1);
   }
@@ -72,13 +73,13 @@ int set_step(int a_1, int a_2, int b_1, int b_2, int motor){
  */
 void rotate_step(int delay, int clockwise, int motor) {
  delay = delay / PHASES_PER_STEP;
- set_step(1,0, clockwise, !clockwise, motor); // 1010 if CW, 1001 if CCW
+ set_step(1, 0, clockwise, !clockwise, motor); // 1010 if CW, 1001 if CCW
  timer_delay_ms(delay);
- set_step(0,1, clockwise, !clockwise, motor); // 0110 if CW, 0101 if CCW
+ set_step(0, 1, clockwise, !clockwise, motor); // 0110 if CW, 0101 if CCW
  timer_delay_ms(delay);
- set_step(0,1, !clockwise, clockwise, motor); // 0101 if CW, 0110 if CCW
+ set_step(0, 1, !clockwise, clockwise, motor); // 0101 if CW, 0110 if CCW
  timer_delay_ms(delay);
- set_step(1,0, !clockwise, clockwise, motor); // 1001 if CW, 1010 if CCW
+ set_step(1, 0, !clockwise, clockwise, motor); // 1001 if CW, 1010 if CCW
  timer_delay_ms(delay);
 }
 
@@ -114,7 +115,7 @@ void rotate_step(int delay, int clockwise, int motor) {
   * Returns 1 if successful. 0 if not.
   */
  int open_lock(int motor) {
-
+   return 1;
  }
 
  /*
@@ -127,7 +128,7 @@ void rotate_step(int delay, int clockwise, int motor) {
    rotate(INCREMENTS_PER_LOCK - first, 0, CCW, MOTOR_1);
    rotate(INCREMENTS_PER_LOCK + second - first, 0, CW, MOTOR_1);
    rotate(third - second, 0, CCW, MOTOR_1);
-   return open_lock();
+   return open_lock(MOTOR_1);
  }
 
  /*
@@ -136,5 +137,6 @@ void rotate_step(int delay, int clockwise, int motor) {
   */
  int break_lock(void) {
 
-   reset_lock();
+   reset_lock(MOTOR_1);
+   return open_lock(MOTOR_1);
  }

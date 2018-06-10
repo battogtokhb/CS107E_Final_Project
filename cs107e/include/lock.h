@@ -27,16 +27,15 @@
  *
  */
 enum {
-  MOTOR_1_A1 = 26;
-  MOTOR_1_A2 = 19;
-  MOTOR_1_B1 = 13;
-  MOTOR_1_B2 = 6;
-
-  MOTOR_2_A1 = 22;
-  MOTOR_2_A2 = 10;
-  MOTOR_2_B1 = 9;
-  MOTOR_2_B2 = 11;
-}
+  MOTOR_1_A1 = 26,
+  MOTOR_1_A2 = 19,
+  MOTOR_1_B1 = 13,
+  MOTOR_1_B2 = 6,
+  MOTOR_2_A1 = 22,
+  MOTOR_2_A2 = 10,
+  MOTOR_2_B1 = 9,
+  MOTOR_2_B2 = 11,
+};
 
 /*
  * These enumerated values define the motors used.
@@ -44,18 +43,18 @@ enum {
  * MOTOR_2 opens the lock.
  */
 enum {
-  MOTOR_1 = 1;
-  MOTOR_2 = 2;
-}
+  MOTOR_1 = 1,
+  MOTOR_2 = 2,
+};
 
 /*
  * These enumerated values define values for clockwise and
  * counterclockwise rotation.
  */
 enum {
-  CCW = 0;
-  CW = 1;
-}
+  CCW = 0,
+  CW = 1,
+};
 
 /*
  * Initialize the stepper code module.

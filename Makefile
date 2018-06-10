@@ -1,6 +1,6 @@
 NAME = apps/interrupts_console_shell
 # Add any modules for which you want to use your own code for assign7, rest will be drawn from library
-MY_MODULES = keyboard.o gprof.o
+MY_MODULES = keyboard.o gprof.o lock.o
 
 # This is the list of modules for building libmypi.a
 LIMYBPI_MODULES = timer.o gpio.o strings.o printf.o backtrace.o malloc.o keyboard.o shell.o fb.o gl.o console.o lock.o
