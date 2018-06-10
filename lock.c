@@ -55,7 +55,7 @@ int set_step(int a_1, int a_2, int b_1, int b_2, int motor){
     gpio_write(MOTOR_1_A1, a_1);
     gpio_write(MOTOR_1_A2, a_2);
     gpio_write(MOTOR_1_B1, b_1);
-    gpio_write(MOTOR_2_B2, b_2);
+    gpio_write(MOTOR_1_B2, b_2);
     return 1;
   } else if (motor == MOTOR_2) {
     gpio_write(MOTOR_2_A1, a_1);
