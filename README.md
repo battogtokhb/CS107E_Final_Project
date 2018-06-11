@@ -4,14 +4,20 @@ Create a short writeup about your project and place it in README.md. If you have
 
 The writeup should also include a short description of what work was performed by each member of the team.
 
-MATERIALS USED
+**MATERIALS USED**
 
--Circuit Board Clamping Kit (https://bit.ly/2JccvUw)
+-[Circuit Board Clamping Kit](https://bit.ly/2JccvUw)
 
--12 VDC Continuous Tubular Pull Solenoid (https://bit.ly/2suVIWt)
+-[12 VDC Continuous Tubular Pull Solenoid](https://bit.ly/2suVIWt)
 
--4-Phase 12VDC 0.4 A Unipolar Stepper Motor (https://bit.ly/2xFiOii)
+-[4-Phase 12VDC 0.4 A Unipolar Stepper Motor](https://bit.ly/2xFiOii)
 
--Stepper Motor Controller (https://bit.ly/2Hi2BPk)
+-[Stepper Motor Controller](https://bit.ly/2Hi2BPk)
 
--24 DIP Motor Driver (https://bit.ly/2sDtrwf)
+-[24 DIP Motor Driver](https://bit.ly/2sDtrwf)
+
+**3D PRINTS**
+
+The 3D prints used in this project can be found under the directory "3d-stl-files". We used Samy Kamkar's 3D prints for project (Combo Breaker)[http://samy.pl/combobreaker/] as a baseline, and we made further personal modifications to fit the scope and physical dimensions of the components in our project. 
+
+
