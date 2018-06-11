@@ -18,6 +18,6 @@ The writeup should also include a short description of what work was performed b
 
 **3D PRINTS**
 
-The 3D prints used in this project can be found under the directory "3d-stl-files". We used Samy Kamkar's 3D prints for project (Combo Breaker)[http://samy.pl/combobreaker/] as a baseline, and we made further personal modifications to fit the scope and physical dimensions of the components in our project. 
+The 3D prints used in this project can be found under the directory "3d-stl-files". We used Samy Kamkar's 3D prints for project [Combo Breaker](http://samy.pl/combobreaker/) as a baseline, and we made further personal modifications to fit the scope and physical dimensions of the components in our project. 
 
 
