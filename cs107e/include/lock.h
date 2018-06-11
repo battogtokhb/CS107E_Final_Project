@@ -17,9 +17,9 @@
 
 #define INCREMENTS_PER_LOCK 40
 // The total steps per increment on the clock. Varies depending on motor, voltage, etc.
-#define STEPS_PER_INCREMENT 1
+#define STEPS_PER_INCREMENT 5
 
-#define HALF_STEPS_PER_INCREMENT 1
+
 // Total phases per step. Depends on type of motor. This assumes a bipolar stepper motor.
 #define PHASES_PER_STEP 4
 
@@ -54,8 +54,8 @@ enum {
  * counterclockwise rotation.
  */
 enum {
-  CCW = 1,
-  CW = 0,
+  CCW = 0,
+  CW = 1,
 };
 
 /*
