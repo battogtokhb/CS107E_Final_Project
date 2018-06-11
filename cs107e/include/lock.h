@@ -17,7 +17,9 @@
 
 #define INCREMENTS_PER_LOCK 40
 // The total steps per increment on the clock. Varies depending on motor, voltage, etc.
-#define STEPS_PER_INCREMENT 3
+#define STEPS_PER_INCREMENT 1
+
+#define HALF_STEPS_PER_INCREMENT 1
 // Total phases per step. Depends on type of motor. This assumes a bipolar stepper motor.
 #define PHASES_PER_STEP 4
 
@@ -52,8 +54,8 @@ enum {
  * counterclockwise rotation.
  */
 enum {
-  CCW = 0,
-  CW = 1,
+  CCW = 1,
+  CW = 0,
 };
 
 /*
@@ -66,11 +68,11 @@ void stepper_init(void);
  * specified time.
  *
  * Takes approximately one "delay" for one step. Delay must be a multiple
- * of PHASES_PER_STEP * STEPS_PER_INCREMENT.
+ * of PHASES_PER_STEP.
  *
  * Clockwise is a 1 or 0 to indicate direction of rotation.
  */
-void rotate(int increments, int delay, int clockwise, int motor);
+void rotate(int increments, int clockwise, int motor);
 
 /*
  * Opens the lock by rotating the stepper motor such that it tugs on the lock.

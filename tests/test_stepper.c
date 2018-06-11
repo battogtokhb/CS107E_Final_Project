@@ -6,8 +6,9 @@
 void main(void)
 {
   stepper_init();
-  while (1) {
-    rotate(5, PHASES_PER_STEP * STEPS_PER_INCREMENT, CW, MOTOR_1);
-    rotate(5, PHASES_PER_STEP * STEPS_PER_INCREMENT, CCW, MOTOR_1);
-  }
+//  while (1) {
+    //half_rotate(5,  CW, MOTOR_1);
+    rotate(1,  CW, MOTOR_1);
+
+//  }
 }
