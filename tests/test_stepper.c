@@ -42,5 +42,5 @@ void test_unlock_with_unknown_val() {
 }
 
 void test_full_unlock() {
-  unlock_lock(39, 5, 11);
+  unlock_lock(37, 23, 9);
 }

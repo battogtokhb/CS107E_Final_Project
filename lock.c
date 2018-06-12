@@ -7,9 +7,9 @@
 
 
 // MARK:- CONSTANTS
-static const int ROTATIONS_TO_RESET = 2;
+static const int ROTATIONS_TO_RESET = 3;
 static const int STANDARD_DELAY = 25;
-static const int STEPS_TO_UNLOCK = 30;
+static const int STEPS_TO_UNLOCK = 70;
 static const int UNLOCK_DELAY = 3000;
 
 // Are kept constant, but must be static int for assignment.
@@ -208,9 +208,9 @@ void step(int clockwise, int motor) {
          } else {
            rotate((j - k), CCW, MOTOR_1); // 30 - 20
          }
-         //int opened = open_lock(MOTOR_2);
+         int opened = open_lock(MOTOR_2);
          timer_delay_ms(UNLOCK_DELAY);
-         // reset_lock_to_zero(INCREMENTS_PER_LOCK - k, CW);
+         //reset_lock_to_zero(INCREMENTS_PER_LOCK - k, CW);
          if (opened) return opened;
        }
      }
