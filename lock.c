@@ -10,8 +10,6 @@
 static const int ROTATIONS_TO_RESET = 2;
 static const int STANDARD_DELAY = 25;
 
-static int ENA = 21;
-static int ENB = 20;
 
 static int BACKWARD_STEPS[4][4] = { {  1, 0 , 1,0  },
                             { 0, 1, 1,0} ,
@@ -24,8 +22,11 @@ static int FORWARD_STEPS[4][4] = { {  1, 0, 0, 1  },
                                       {0, 1, 1,0} ,
                                       {1, 0 , 1,0} };
 
-static int * FORWARD_INDEX ;
-static int * BACKWARD_INDEX  ;
+static int * FORWARD_INDEX_1 ;
+static int * BACKWARD_INDEX_1  ;
+
+static int * FORWARD_INDEX_2 ;
+static int * BACKWARD_INDEX_2  ;
 
 
 // MARK:- GLOBALS
@@ -62,14 +63,13 @@ void set_stepper_pins(void){
   gpio_set_output(MOTOR_1_B2);
 
 
-  gpio_set_output(ENA);
-  gpio_set_output(ENB);
 
-  gpio_write(ENA, 1);
-  gpio_write(ENB, 1);
 
-  *FORWARD_INDEX  = 1;
-  *BACKWARD_INDEX = 1;
+  *FORWARD_INDEX_1 = 1;
+  *BACKWARD_INDEX_1 = 1;
+
+  *FORWARD_INDEX_2 = 1;
+  *BACKWARD_INDEX_2 = 1;
 
   gpio_set_output(MOTOR_2_A1);
   gpio_set_output(MOTOR_2_A2);
@@ -108,11 +108,23 @@ void step(int clockwise, int motor) {
   int (*reference) [4] ;
   int * index;
   if (clockwise){
-    index = FORWARD_INDEX;
+    if (motor == MOTOR_1){
+        index = FORWARD_INDEX_1;
+    }
+    else{
+      index = FORWARD_INDEX_2;
+    }
+
     reference = FORWARD_STEPS;
   }
   else{
-    index = BACKWARD_INDEX;
+    if (motor == MOTOR_1){
+        index = BACKWARD_INDEX_1;
+    }
+    else{
+      index = BACKWARD_INDEX_2;
+    }
+
     reference = BACKWARD_STEPS;
 
   }
