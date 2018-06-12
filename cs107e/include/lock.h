@@ -34,10 +34,10 @@ enum {
   MOTOR_1_B1 = 13,
   MOTOR_1_B2 = 6,
 
-  MOTOR_2_A1 = 22,
-  MOTOR_2_A2 = 10,
-  MOTOR_2_B1 = 9,
-  MOTOR_2_B2 = 11,
+  MOTOR_2_A1 = 21,
+  MOTOR_2_A2 = 20,
+  MOTOR_2_B1 = 16,
+  MOTOR_2_B2 = 12,
 };
 
 /*
