@@ -10,7 +10,6 @@
 static const int ROTATIONS_TO_RESET = 2;
 static const int STANDARD_DELAY = 25;
 
-
 static int ENA = 21;
 static int ENB = 20;
 
@@ -68,8 +67,6 @@ void set_stepper_pins(void){
 
   gpio_write(ENA, 1);
   gpio_write(ENB, 1);
-//  FORWARD_INDEX = malloc(1);
-//  BACKWARD_INDEX = malloc(1);
 
   *FORWARD_INDEX  = 1;
   *BACKWARD_INDEX = 1;
@@ -85,10 +82,6 @@ void set_stepper_pins(void){
  * Returns 1 if successful. Returns 0 if not.
  */
 int set_step(int a_1, int a_2, int b_1, int b_2, int motor){
-
-
-
-
   if (motor == MOTOR_1) {
     gpio_write(MOTOR_1_A1, a_1);
     gpio_write(MOTOR_1_A2, a_2);
@@ -105,10 +98,7 @@ int set_step(int a_1, int a_2, int b_1, int b_2, int motor){
   return 0;
 }
 
-
-
-
-void clear_pins(motor){
+void clear_pins(int motor){
   set_step(0,0,0,0,motor);
 }
 
@@ -139,10 +129,6 @@ void step(int clockwise, int motor) {
     *index = *index + 1;
     n++;
   }
-
-
-
-
 }
 
 
@@ -165,14 +151,8 @@ void step(int clockwise, int motor) {
  void rotate(int increments, int clockwise, int motor){
    for (int i = 0; i < increments; i++){
        step(clockwise, motor);
-
    }
-
-
  }
-
-
-
 
  /*
   * Opens the lock by rotating the stepper motor such that it tugs on the lock.
@@ -180,7 +160,7 @@ void step(int clockwise, int motor) {
   * Returns 1 if successful. 0 if not.
   */
  int open_lock(int motor) {
-   return 1;
+   return 0;
  }
 
  /*
@@ -193,21 +173,27 @@ void step(int clockwise, int motor) {
   * one function with a variable number of arguments.
   */
  int unlock_lock(int first, int second, int third) {
-   reset_lock(MOTOR_1);
-   rotate(INCREMENTS_PER_LOCK - first,CCW, MOTOR_1);
-   rotate(INCREMENTS_PER_LOCK, CW, MOTOR_1);
-   rotate(second - first, CW, MOTOR_1);
-   rotate(second- third, CCW, MOTOR_1);
-   //return open_lock(MOTOR_1);
- }
-
- /*
-  * Breaks into the lock using brute force.
-  * Returns the code that worked. Assumes a starting position of 0.
-  * 8 30 20
-  */
- int break_lock(void) {
-
-   reset_lock(MOTOR_1);
-   return open_lock(MOTOR_1);
+   int first_final = INCREMENTS_PER_LOCK;
+   int second_final = INCREMENTS_PER_LOCK;
+   int third_final = INCREMENTS_PER_LOCK;
+   (first == -1) ? (first = 0) : (first_final = first + 1);
+   (second == -1) ? (second = 0) : (second_final = second + 1);
+   (third == -1) ? (third = 0) : (third_final = third + 1);
+   int opened = 0;
+   for (int i = first; i < first_final; i++) {
+     for (int j = second; j < second_final; j++) {
+       for (int k = third; k < third_final; k++) {
+         if (k >= j) continue;
+         reset_lock(MOTOR_1);
+         rotate(INCREMENTS_PER_LOCK - i,CCW, MOTOR_1);
+         rotate(INCREMENTS_PER_LOCK, CW, MOTOR_1);
+         rotate(j - i, CW, MOTOR_1);
+         rotate(j - k, CCW, MOTOR_1);
+         int opened = open_lock(MOTOR_1);
+         reset_lock_to_zero(INCREMENTS_PER_LOCK - k, CW);
+         if (opened) return opened;
+       }
+     }
+   }
+   return opened;
  }

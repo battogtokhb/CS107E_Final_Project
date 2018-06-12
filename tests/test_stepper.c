@@ -13,7 +13,8 @@ void main(void)
     // rotate(40,  1, MOTOR_1);
     // rotate(22,  1, MOTOR_1);
     // rotate(10,  0, MOTOR_1);
-     unlock_lock(8, 30, 20);
+     unlock_lock(8, 30, -1);
+     // 8 30 20
 
 //  }
 }
