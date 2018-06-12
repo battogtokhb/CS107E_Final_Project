@@ -9,31 +9,35 @@
 // MARK:- CONSTANTS
 static const int ROTATIONS_TO_RESET = 2;
 static const int STANDARD_DELAY = 25;
+static const int STEPS_TO_UNLOCK = 30;
+static const int UNLOCK_DELAY = 3000;
 
-
-static int BACKWARD_STEPS[4][4] = { {  1, 0 , 1,0  },
-                            { 0, 1, 1,0} ,
-                            {0, 1, 0, 1} ,
-                            {1, 0, 0, 1} };
-
-
-static int FORWARD_STEPS[4][4] = { {  1, 0, 0, 1  },
-                                      { 0, 1, 0, 1} ,
-                                      {0, 1, 1,0} ,
-                                      {1, 0 , 1,0} };
-
-static int * FORWARD_INDEX_1 ;
-static int * BACKWARD_INDEX_1  ;
-
-static int * FORWARD_INDEX_2 ;
-static int * BACKWARD_INDEX_2  ;
+// Are kept constant, but must be static int for assignment.
+static int BACKWARD_STEPS[4][4] = { { 1, 0, 1, 0 },
+                                    { 0, 1, 1, 0},
+                                    { 0, 1, 0, 1},
+                                    { 1, 0, 0, 1} };
+static int FORWARD_STEPS[4][4] = {  { 1, 0, 0, 1 },
+                                    { 0, 1, 0, 1} ,
+                                    { 0, 1, 1, 0} ,
+                                    { 1, 0 ,1, 0} };
 
 
 // MARK:- GLOBALS
 
+static int * FORWARD_INDEX_1;
+static int * BACKWARD_INDEX_1;
+
+static int * FORWARD_INDEX_2;
+static int * BACKWARD_INDEX_2;
 
 
 // MARK:- HELPER FUNCTIONS
+
+int abs(int x) {
+  if (x < 0) x *= (-1);
+  return x;
+}
 
 /*
  * Moves the pointer to zero.
@@ -61,9 +65,6 @@ void set_stepper_pins(void){
   gpio_set_output(MOTOR_1_A2);
   gpio_set_output(MOTOR_1_B1);
   gpio_set_output(MOTOR_1_B2);
-
-
-
 
   *FORWARD_INDEX_1 = 1;
   *BACKWARD_INDEX_1 = 1;
@@ -108,29 +109,24 @@ void step(int clockwise, int motor) {
   int (*reference) [4] ;
   int * index;
   if (clockwise){
-    if (motor == MOTOR_1){
-        index = FORWARD_INDEX_1;
-    }
-    else{
+    if (motor == MOTOR_1) {
+      index = FORWARD_INDEX_1;
+    } else if (motor == MOTOR_2) {
       index = FORWARD_INDEX_2;
     }
-
     reference = FORWARD_STEPS;
   }
-  else{
-    if (motor == MOTOR_1){
-        index = BACKWARD_INDEX_1;
-    }
-    else {
+  else {
+    if (motor == MOTOR_1) {
+      index = BACKWARD_INDEX_1;
+    } else if (motor == MOTOR_2) {
       index = BACKWARD_INDEX_2;
     }
-
     reference = BACKWARD_STEPS;
-
   }
   int n = 0;
-  while (n < STEPS_PER_INCREMENT){
-    if (*index== 4){
+  while (n < STEPS_PER_INCREMENT) {
+    if (*index == 4){
       *index=0;
     }
     int * sequence;
@@ -172,6 +168,9 @@ void step(int clockwise, int motor) {
   * Returns 1 if successful. 0 if not.
   */
  int open_lock(int motor) {
+   for (int i = 0; i < STEPS_TO_UNLOCK; i++){
+       step(CCW, motor);
+   }
    // go back same amount of times
    return 0;
  }
@@ -196,14 +195,22 @@ void step(int clockwise, int motor) {
    for (int i = first; i < first_final; i++) {
      for (int j = second; j < second_final; j++) {
        for (int k = third; k < third_final; k++) {
-         if (k >= j) continue;
          reset_lock(MOTOR_1);
-         rotate(INCREMENTS_PER_LOCK - i,CCW, MOTOR_1);
-         rotate(INCREMENTS_PER_LOCK, CW, MOTOR_1);
-         rotate(j - i, CW, MOTOR_1);
-         rotate(j - k, CCW, MOTOR_1);
-         int opened = open_lock(MOTOR_1);
-         reset_lock_to_zero(INCREMENTS_PER_LOCK - k, CW);
+         rotate(INCREMENTS_PER_LOCK - i, CCW, MOTOR_1); // 40 - 39
+         rotate(INCREMENTS_PER_LOCK, CW, MOTOR_1); // 40
+         if ((j - i) < 0) {
+           rotate(j + (INCREMENTS_PER_LOCK - i), CW, MOTOR_1); // 05 + (40 - 39)
+         } else {
+           rotate(j - i, CW, MOTOR_1); // 05 - 39
+         }
+         if ((j - k) < 0) {
+           rotate((j + (INCREMENTS_PER_LOCK - k)), CCW, MOTOR_1); // 05 + (40 - 11)
+         } else {
+           rotate((j - k), CCW, MOTOR_1); // 30 - 20
+         }
+         //int opened = open_lock(MOTOR_2);
+         timer_delay_ms(UNLOCK_DELAY);
+         // reset_lock_to_zero(INCREMENTS_PER_LOCK - k, CW);
          if (opened) return opened;
        }
      }
