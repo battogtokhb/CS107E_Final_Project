@@ -111,7 +111,7 @@ void step(int clockwise, int motor) {
     index = FORWARD_INDEX;
     reference = FORWARD_STEPS;
   }
-  else{
+  else {
     index = BACKWARD_INDEX;
     reference = BACKWARD_STEPS;
 
@@ -160,6 +160,7 @@ void step(int clockwise, int motor) {
   * Returns 1 if successful. 0 if not.
   */
  int open_lock(int motor) {
+   // go back same amount of times
    return 0;
  }
 
