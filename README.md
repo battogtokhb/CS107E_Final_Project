@@ -42,4 +42,6 @@ Zaya found, modified, and printed all the 3D parts required for this project. Sh
 
 Josh did work on trying to use the second stepper motor with a pulley mechanism to lift up the shackle. He also wrote code for brute-forcing the lock. Josh also created the presentation board for the project.
 
+Zaya and Josh both designed, optimized, and debugged the code used in the project.
+
 
