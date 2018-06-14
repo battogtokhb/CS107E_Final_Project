@@ -6,19 +6,24 @@ The writeup should also include a short description of what work was performed b
 
 **MATERIALS USED**
 
--[Circuit Board Clamping Kit](https://bit.ly/2JccvUw)
+- 1 x [4-Phase 12VDC 0.4 A Unipolar Stepper Motor](https://bit.ly/2xFiOii)
 
--[12 VDC Continuous Tubular Pull Solenoid](https://bit.ly/2suVIWt)
+- 2 x [L298N Motor Drive Controller Board](https://www.amazon.com/gp/product/B014KMHSW6/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1)
 
--[4-Phase 12VDC 0.4 A Unipolar Stepper Motor](https://bit.ly/2xFiOii)
+- Additional Stepper Motor obtained from Chris Gregg (unknown model)
 
--[Stepper Motor Controller](https://bit.ly/2Hi2BPk)
+- 3D Prints (see details below)
 
--[24 DIP Motor Driver](https://bit.ly/2sDtrwf)
+- Generic chain and hook from Home Depot
+
 
 **3D PRINTS**
 
 The 3D prints used in this project can be found under the directory "3d-stl-files". We used Samy Kamkar's 3D prints for project [Combo Breaker](http://samy.pl/combobreaker/) as a baseline, and we made further personal modifications to fit the scope and physical dimensions of the components in our project. 
+
+**DEMO VIDEO**
+
+See below for a video of the demo.
 
 
 [![Alt text](https://img.youtube.com/vi/DToVxfMl1qU/0.jpg)](https://www.youtube.com/watch?v=DToVxfMl1qU)
