@@ -23,7 +23,6 @@ The 3D prints used in this project can be found under the directory "3d-stl-file
 
 **DEMO VIDEO**
 
-See below for a video of the demo.
-
+See below for a video of the demo. As seen in the video, we were able to configure our stepper motor with code to turn the lock dial to exact combinations. We also set up a mechanism with the second stepper motor with the use of the hook and chain to pull the lock shackle upwards. However, as seen in the video, this was unsuccessful because not enough force (torque) was generated from the stepper motor. 
 
 [![Alt text](https://img.youtube.com/vi/DToVxfMl1qU/0.jpg)](https://www.youtube.com/watch?v=DToVxfMl1qU)
