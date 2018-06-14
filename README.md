@@ -20,11 +20,11 @@ Additionally, we researched methods on how to brute-force a master lock efficien
 
 **3D PRINTS**
 
-The 3D prints used in this project can be found under the directory "3d-stl-files". We used Samy Kamkar's 3D prints for project [Combo Breaker](http://samy.pl/combobreaker/) as a baseline, and we made further personal modifications to fit the scope and physical dimensions of the components in our project. 
+The 3D prints used in this project can be found under the folder "3d-stl-files". We used Samy Kamkar's 3D prints for project [Combo Breaker](http://samy.pl/combobreaker/) as a baseline, and we made further personal modifications to fit the scope and physical dimensions of the components in our project. 
 
 **CODE**
 
-Please see "lock.c" and the header "lock.h" (this can be found in the local cs107e folder under include in this repository). These files are commented with relevant details.
+Please see "lock.c" and the  "lock.h" (this header can be found in the local cs107e folder under include in this repository). These files are commented with relevant details.
 
 **DEMO VIDEO**
 
