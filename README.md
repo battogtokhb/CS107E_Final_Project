@@ -33,4 +33,14 @@ See below for a video of the demo. As seen in the video, we were able to configu
 
 [![Alt text](https://img.youtube.com/vi/DToVxfMl1qU/0.jpg)](https://www.youtube.com/watch?v=DToVxfMl1qU)
 
+**WORK DONE BY EACH MEMBER OF THE TEAM**
+
+*ZAYA*
+
+Zaya found, modified, and printed all the 3D parts required for this project. She also wrote code to precisely turn the stepper motor to the exact increments of the lock. 
+
+*JOSH*
+
+Josh did work on trying to use the second stepper motor with a pulley mechanism to lift up the shackle. He also wrote code for brute-forcing the lock. 
+
 
