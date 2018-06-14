@@ -8,7 +8,7 @@ The writeup should also include a short description of what work was performed b
 
 The goal of this project is to be able to brute-force unlock any master-lock. We aimed to achieve this goal by using a stepper motor to turn the dials of the lock and a solenoid to open the shackle. We were able to use the stepper motor to precisely turn the dials of the lock to specific increments on the lock, but we found that the solenoid was too weak to lift the shackle. Therefore, we decided to use a second stepper motor with a pulley mechanism to open the shackle, but ultimately this too was insufficient. Without the ability to mechanically open the shackle, we were not able to effectively brute-force unlock the master lock since brute-forcing requires the ability to check if the combination is correct by attempting to open the shackle. However, we were able to implement code to be able to brute force a lock although realistically, the code would require a lot of time.
 
-Additionally, we researched methods on how to brute-force a master lock efficiently. Some methods [https://samy.pl/master/master.html] advertised the ability to "crack any master lock in eight tries or less". However we found that these methods required the ability to control force on the shackle which we were not able to implement in this project.
+Additionally, we researched methods on how to brute-force a master lock efficiently. Some (methods) [https://samy.pl/master/master.html] advertised the ability to "crack any master lock in eight tries or less". However we found that these methods required the ability to control force on the shackle which we were not able to implement in this project.
 
 **MATERIALS USED**
 
